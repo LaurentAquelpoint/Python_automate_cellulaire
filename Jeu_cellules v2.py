@@ -4,7 +4,6 @@ import pandas as pd
 
 couleur_carres = '#ee502d'
 
-
 fen1 = tk.Tk()
 
 fr1 = tk.Frame(fen1, height = 1000, width = 1000)
@@ -26,7 +25,6 @@ class cellule():
         self.rectangle = rectangle
         
 ##########
-
 
 class class_glob():
     def __init__(self):
@@ -93,10 +91,7 @@ class culture_cel():
                                              width = 0)) # attention x et y sont inversés
          
 #                print(type(self.dico_cellules[nom].rectangle))
-         
-         
-
-                 
+   
 tot.liste_culture =  {'c' : culture_cel('c', '#ee502d', 0.5, 0.5, tot.nb_cel)}
                                         
 #                                        'd' : culture_cel('d', 'red', 0.6, 0.6, 4),
@@ -171,7 +166,6 @@ def ajoute_proba(mat, pos, p):
             if((x + i <= tot.n + 1) & (y + j <= tot.n + 1)):
                 mat[int(x + i), int(y + j)] *= p
 
-
 ##########
             
 def dist8(tupl1, tupl2):
@@ -199,9 +193,7 @@ def creer_liste_voisins():
                 culture.dico_cellules[key1].nbr_vois = len(culture.dico_cellules[key1].liste_voisins)
 
 creer_liste_voisins()
-
-
-                    
+        
 ##########
 
 def test_connexite_vois(nom): # test de connexité par voisins
@@ -233,8 +225,7 @@ def test_connexite_vois(nom): # test de connexité par voisins
            compt = compt - 2
         if(all([elem in cellule.pos_rel_vois for elem in [(1, 0), (1, -1), (0, -1)]])):
            compt = compt - 2
-          
-        
+ 
         return (compt >= 2*nbr_vois - 2)
 
     elif(tot.type_con == 4):
@@ -516,10 +507,8 @@ def maj_matrices():
                 
     culture.matrice_depart = np.maximum(culture.matrice_depart, tot.nourriture)
     culture.matrice_arrivee = np.maximum(culture.matrice_arrivee, tot.nourriture)
-                
-                
+    
 ##########
-
 
 def maj_cellules():
     
@@ -590,8 +579,6 @@ def maj_cellules():
 #    print(culture.matrice_cellules)
     tot.can.after(tot.temps, marche_auto)
     
-
-    
 ##########    
 
 def reinitialise_rect(x, y): # x et y coordonnées de la translation à opérer
@@ -620,8 +607,6 @@ def reinitialise_rect(x, y): # x et y coordonnées de la translation à opérer
         cult2.matrice_depart = translate_coef_mat(1, cult2.matrice_depart, x, y)
         cult2.matrice_arrivee = translate_coef_mat(1, cult2.matrice_arrivee, x, y)
         cult2.matrice_cellules = translate_coef_mat(0, cult2.matrice_cellules, x, y)
-        
-
 
 ##########
 
@@ -672,9 +657,7 @@ def marche_auto():
     
     if(tot.MA == 1):
         tot.can.after(tot.temps, maj_cellules)
-        
-
-
+  
 ##########
 
 boutonfont = ('times', '20')
@@ -694,8 +677,6 @@ Label_compt = tk.Label(fr2, textvariable = texte_compte, width = 10, height = 4)
 Label_compt.grid(row = 2, column = 1, sticky = 'nw', columnspan = 2)
 Label_compt.config(font = boutonfont)
 
-
-
 text_x = tk.StringVar()
 text_x.set(str(tot.abscisse))
 
@@ -709,7 +690,6 @@ text_y.set(str(tot.ordonnee))
 laby = tk.Label(fr1, textvariable = text_y)
 laby.grid(row = 1, column = 0)
 laby.config(font = boutonfont)
-
 
 fen1.mainloop()
 
@@ -737,13 +717,29 @@ fen1.mainloop()
 #for key in cult1.dico_cellules:
 #    print(cult1.dico_cellules[key].position)
 
-
 u = np.array([-1, 5, -4, 5, 7, 6])
 np.maximum(u, 1)
 
-
 #for i in tot.liste_culture['c'].dico_cellules:
 #    print(tot.liste_culture['c'].dico_cellules[i].vois_connexe)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
